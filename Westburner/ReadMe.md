@@ -6,4 +6,4 @@ Use the stock LED tray.
 
 Assembles just like the stock SB.
 
-![WestBurner SB Mod](https://github.com/oogoom/Voron-Mods/blob/main/WestBurner/WestBurner.jpg)
+![WestBurner SB Mod](https://github.com/oogoom/Voron-Mods/blob/main/WestBurner/images/WestBurner.jpg)
