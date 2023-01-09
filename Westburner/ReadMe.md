@@ -5,3 +5,5 @@ Modified Stealthburner Front to include the West3D logo.
 Use the stock LED tray.
 
 Assembles just like the stock SB.
+
+![WestBurner SB Mod](https://github.com/oogoom/Voron-Mods/blob/main/WestBurner/WestBurner.jpg)
