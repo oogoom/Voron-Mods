@@ -4,7 +4,7 @@
 
 1. Go to the MainSail file manager and enable "HIDDEN FILES" under the cog menu.
 2. Create a folder named ".theme" (the period is required) in the main config file path
-3. Add the desired files to the .theme folder
+3. Add the desired files to the .theme folder.  
 4. Rename files corresponding to your desired look to their standard name.  For example, the css file of your choice needs to be renamed to "custom.css".
 5. Refresh your browser.  You may need to hold SHIFT and press F5 (Mac: Hold Command and press R) to refresh with a clean cache. 
 
