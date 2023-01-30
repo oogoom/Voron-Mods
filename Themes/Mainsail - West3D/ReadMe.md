@@ -11,10 +11,10 @@ a West3D Mainsail Theme
 
 You are free to mix and match however you like.  Some example combinations are shown below.  To get the full theme coverage, you will need all four files with their standard names:
 
-favicon-32x32.png
-sidebar-background.png
-sidebar-logo.png
-custom.css
+- favicon-32x32.png
+- sidebar-background.png
+- sidebar-logo.png
+- custom.css
 
 ## File descriptions:
 
