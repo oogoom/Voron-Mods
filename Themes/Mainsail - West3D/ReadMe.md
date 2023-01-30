@@ -49,7 +49,7 @@ West3D "3D" stylized logo for your favicon logo tab.
 ![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/edit/main/Themes/Mainsail%20-%20West3D/greenJustRight.jpg)
 
 ### Black Module Bars/Header with White Header Text
-![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/edit/main/Themes/Mainsail%20-%20West3D/greenLight.jpg)
+![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenLight.jpg)
 
 ### Dark Green Module Bars/Header with White Header Text
 ![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenDarkerHeavy.jpg)
