@@ -28,7 +28,7 @@ custom-darker-greenbars-whiteheaders.css: Module headers and header bar will be 
 
 custom-greenbars-whiteheaders.css: Module headers and header bar will be West3D green with white title text.
 
-### sidebar-backgorund.png
+### sidebar-background.png
 
 sidebar-background.png: West3D green and black gradient with West3D logo.
 
