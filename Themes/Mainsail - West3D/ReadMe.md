@@ -47,13 +47,13 @@ West3D "3D" stylized logo for your favicon logo tab.
 ## Examples
 
 ### Black Module Bars/Header with Green Header Text
-![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenJustRight.jpg)
+![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/images/greenJustRight.jpg)
 
 ### Black Module Bars/Header with White Header Text
-![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenLight.jpg)
+![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/images/greenLight.jpg)
 
 ### Dark Green Module Bars/Header with White Header Text
-![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenDarkerHeavy.jpg)
+![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/images/greenDarkerHeavy.jpg)
 
 ### West3D Green Module Bars/Header with White Header Text
-![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/greenHeavy.jpg)
+![West3D Green Module Bars/Header with White Header Text](https://github.com/oogoom/Voron-Mods/blob/main/Themes/Mainsail%20-%20West3D/images/greenHeavy.jpg)
