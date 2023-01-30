@@ -1,4 +1,5 @@
-# West3D Mainsail Theme
+# WestSail 
+#### a West3D Mainsail Theme
 
 ## How to Install
 
