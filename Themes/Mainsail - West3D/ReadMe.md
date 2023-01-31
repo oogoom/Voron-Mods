@@ -40,6 +40,8 @@ sidebar-logo-color.png: Berserker bust in color
 
 sidebar-logo-bw.png: Berserker bust in black & white with added blood splatter!
 
+sidebar-logo-3D.png: Stylized "3D" from the West3D logo.
+
 ### favicon-32x32.png
 
 West3D "3D" stylized logo for your favicon logo tab.  
