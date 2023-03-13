@@ -1,4 +1,4 @@
-Some simple plugs for the corners of the extrusions.
+Some simple plugs for the corners of the extrusions.  Tolerances are TIGHT.  They are intended to be printed with TPU (Shore 95A), which gives you enough squish to get a snug fit and seal things up.
 
 Two plugs to go over the blind joints in each corner (total of 8 since the bottom corners don't need them).
 
