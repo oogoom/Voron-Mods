@@ -24,7 +24,16 @@ Once [save_variables] has been added to your printer.cfg, you can add these macr
 
 [FILTER_TIME] simply displays the currently tracked hour counter value.  Quick way to see how close you are to reaching your max.
 
-[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Calls FILTER_ALERT_CHECK to check if hour counter exceeds the max and alerts if it is.
+[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Calls FILTER_ALERT_CHECK to check if hour counter exceeds the max and alerts if it is.  If you use delayed gcode to turn off your fans, send the duration value (which is in seconds) when calling this macro in the DELAY parameter.  For example, 
+
+```
+# Calls macro with the delayed_gcode duration value of 1800 seconds (i.e., 30 minutes)
+FILTER_ADD_TIME DELAY=1800
+```
+If you don't use delayed gcode, then simply call FILTER_ADD_TIME without the DELAY parameter.
+
+### INSTALLATION
+Copy and paste these macros into your printer.cfg or whatever file you keep your macros in.
 
 ```
 [gcode_macro FILTER_ALERT_CHECK]
@@ -56,7 +65,7 @@ gcode:
             # The command below calls the moonraker notifier.  Change NOTIF_NAME of the name variable to whatever you call your notifier and uncomment the line.
             ########################################################################################################################################################
             # Sends notification via notifier to your moonraker notification service
-            {action_call_remote_method("notify", name="kageBot", message="WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
+            {action_call_remote_method("notify", name="NOTIF_NAME", message="WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
         {% endif %}
     {% endif %}
 
@@ -78,8 +87,11 @@ gcode:
 description: updates the hourcounter variable with the recently completed print.  call this in your print_end.
 gcode:
    {% set svv = printer.save_variables.variables %}
+   {% set extra_time = params.DELAY|default(0)|int %}              # delayed gcode extra time after a print ends, provided in SECONDS
    # Convert total_duration to hours
    {% set total_hours = ((printer.print_stats.total_duration/3600)|round(2,'common')) %}
+   # Convert delayed gcode extra time to hours and add it to total_hours
+   {% set total_hours = total_hours + (extra_time/3600)|round(2,'common') %}
    # Check if there is even a value (for cases where cancelled/failed print doesn't produce one). If not, do nothing.
    {% if total_hours > 0 %}
         SAVE_VARIABLE VARIABLE=hourcounter VALUE={svv.hourcounter + total_hours}
