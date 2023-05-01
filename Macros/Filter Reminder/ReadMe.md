@@ -18,7 +18,7 @@ filename: ~/printer_data/config/variables.cfg
 
 Once [save_variables] has been added to your printer.cfg, you can add these macros as well.  
 
-[FILTER_RESET_CHECK] does error checking and alerting.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called. 
+[FILTER_ALERT_CHECK] does error checking and alerting.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called. Also, includes support for moonraker notifier.  Alerts are displayed in M117 status as well as the console.  Hopefully, you see one of them but feel free to comment out whichever you don't want.
 
 [FILTER_RESET] resets the hour counter and is where you can define your desired maximum hours.  It is a float value to reflect print jobs less than 1 hour.  Change the maxhours value to whatever you wish.  This macro should be run every time you change your filter media.  It will call FILTER_ALERT_CHECK to display an M117 status message once complete or an error if something went wrong.
 
@@ -30,32 +30,49 @@ Once [save_variables] has been added to your printer.cfg, you can add these macr
 [gcode_macro FILTER_ALERT_CHECK]
 description: checks to make sure hourcounter is reset
 gcode:
-    {% set option = params.MODE|default(0)|int %}                         # Get mode
-    {% set svv = printer.save_variables.variables %}                      # shortcut for stored variables
+    {% set option = params.MODE|default(0)|int %}
+    {% set svv = printer.save_variables.variables %}
     {% if option == 0 %}                                                  # called from FILTER RESET
-        {% if svv.hourcounter == 0 %}                                    
+        {% if svv.hourcounter == 0 %}                                     # Check if counter was reset
+              # Display success message to STATUS
               M117 FILTER TIME HAS BEEN RESET TO {svv.hourcounter} HOURS  # if you reset your hour counter, it displays success message
-        {% else %} 
-              M117 ERROR: UNABLE TO RESET COUNTER                         # displays error message.  If you get this, check your variables.cfg file.
+              # Display success message to CONSOLE
+              {action_respond_info("FILTER TIME HAS BEEN RESET TO %.2f HOURS."|format(svv.hourcounter))}
+        {% else %}                                                        # Reset wasn't successful for some reason
+              # Display error message to STATUS
+              M117 ERROR: UNABLE TO RESET COUNTER
+              # Display error message to CONSOLE
+              {action_respond_info("ERROR: UNABLE TO RESET FILTER HOUR COUNTER.  Check your variables.cfg to make sure data is correct.")}
         {% endif %} 
     {% elif option == 1 %}                                                # called from FILTER_ADD_TIME
-        {% if svv.hourcounter > svv.maxhours %}                        
-            M117 WARNING: FILTER CARBON EXCEEDS {svv.maxhours} HOURS      # if hour counter is greater than your max, displays warning
+        {% if svv.hourcounter > svv.maxhours %}                           # Check if max hours is exceeded.        
+            # Display exceeded warning to STATUS
+            M117 WARNING: FILTER CARBON EXCEEDS {svv.maxhours} HOURS     
+            # Display exceeded warning to CONSOLE
+            {action_respond_info("WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
+            #######################################################################################################################################################
+            # MOONRAKER NOTIFIER 
+            # Requires moonraker notifier bot to be enabled.  See: https://moonraker.readthedocs.io/en/latest/configuration/#notifier
+            # The command below calls the moonraker notifier.  Change NOTIF_NAME of the name variable to whatever you call your notifier and uncomment the line.
+            ########################################################################################################################################################
+            # Sends notification via notifier to your moonraker notification service
+            {action_call_remote_method("notify", name="kageBot", message="WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
         {% endif %}
     {% endif %}
 
 [gcode_macro FILTER_RESET]
 description: sets max hours and resets hour counter
 gcode:
-    SAVE_VARIABLE VARIABLE=maxhours VALUE=300.00               # Set maximum number of hours before displaying reminder
+    SAVE_VARIABLE VARIABLE=maxhours VALUE=300.00               # Set maximum number of hours before displaying reminder. Change it to whatever value you want.
     SAVE_VARIABLE VARIABLE=hourcounter VALUE=0                 # Reset print hours counter before displaying reminder
     FILTER_ALERT_CHECK                                         # need to do this because the variable value doesn't update immediately for some reason
 
 [gcode_macro FILTER_TIME]
 description: displays current filter hours
 gcode:
-    {% set svv = printer.save_variables.variables %}           # shortcut for stored variables
+    {% set svv = printer.save_variables.variables %}
     M117 FILTER CARBON IS {svv.hourcounter} HOURS OLD
+    {action_respond_info("FILTER CARBON IS %.2f HOURS OLD.  YOUR MAX HOURS IS: %.2f"|format(svv.hourcounter, svv.maxhours))}
 
 [gcode_macro FILTER_ADD_TIME]
 description: updates the hourcounter variable with the recently completed print.  call this in your print_end.
