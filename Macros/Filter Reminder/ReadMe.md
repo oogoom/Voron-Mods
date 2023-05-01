@@ -18,13 +18,13 @@ filename: ~/printer_data/config/variables.cfg
 
 Once [save_variables] has been added to your printer.cfg, you can add these macros as well.  
 
-[FILTER_RESET_CHECK] does error checking and alerting after counter reset.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called.  
+[FILTER_RESET_CHECK] does error checking and alerting.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called. 
 
 [FILTER_RESET] resets the hour counter and is where you can define your desired maximum hours.  It is a float value to reflect print jobs less than 1 hour.  Change the maxhours value to whatever you wish.  This macro should be run every time you change your filter media.  It will call FILTER_ALERT_CHECK to display an M117 status message once complete or an error if something went wrong.
 
 [FILTER_TIME] simply displays the currently tracked hour counter value.  Quick way to see how close you are to reaching your max.
 
-[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Checks to see if hour counter exceeds the max and alerts if it is.
+[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Calls FILTER_ALERT_CHECK to check if hour counter exceeds the max and alerts if it is.
 
 ```
 [gcode_macro FILTER_ALERT_CHECK]
