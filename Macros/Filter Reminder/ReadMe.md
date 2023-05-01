@@ -66,8 +66,8 @@ gcode:
             # Requires moonraker notifier bot to be enabled.  See: https://moonraker.readthedocs.io/en/latest/configuration/#notifier
             # The command below calls the moonraker notifier.  Change NOTIF_NAME of the name variable to whatever you call your notifier and uncomment the line.
             ########################################################################################################################################################
-            # Sends notification via notifier to your moonraker notification service
-            {action_call_remote_method("notify", name="NOTIF_NAME", message="WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
+            # Sends notification via notifier to your moonraker notification service. uncomment below to use
+            #{action_call_remote_method("notify", name="NOTIF_NAME", message="WARNING: FILTER CARBON EXCEEDS %.2f HOURS WITH %.2f HOURS."|format(svv.maxhours, svv.hourcounter))}
         {% endif %}
     {% endif %}
 
