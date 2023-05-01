@@ -1,8 +1,10 @@
 
 
-### **DISCLAIMER:** This is not a perfect tracking system.  Currently, it only tracks the total duration of a print job (i.e., heatsoak time + printing time).  It does not track extra time for delayed gcode filter shutoff and it does not track total number of days since refreshing the filter media (e.g., 30 days).  I am hoping to add both these things in the future, so check back soon<sup>tm</sup>?
+### **DISCLAIMER:** This is not a perfect tracking system.  Currently, it only tracks the total duration of a print job (i.e., heatsoak time + printing time) plus any delayed gcode time for turning off fans.  It does not track total number of days since refreshing the filter media (e.g., 30 days).  I am hoping to add this in the future, so check back soon<sup>tm</sup>?
 
-These macros help you track the number of hours your filter media has been used and gives a simple M117 reminder when the tracked hours exceeds a predefined maximum.
+These macros help you track the number of hours your filter media has been used and gives a simple M117 reminder, console alert, and optionally a notifier message, when the tracked hours exceeds a predefined maximum.
+
+Thanks to PF for the notifier idea!
 
 ### REQUIRED:
 
