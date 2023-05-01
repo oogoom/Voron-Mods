@@ -24,7 +24,7 @@ Once [save_variables] has been added to your printer.cfg, you can add these macr
 
 [FILTER_TIME] simply displays the currently tracked hour counter value.  Quick way to see how close you are to reaching your max.
 
-[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Calls FILTER_ALERT_CHECK to check if hour counter exceeds the max and alerts if it is.  If you use delayed gcode to turn off your fans, send the duration value (which is in seconds) when calling this macro in the DELAY parameter.  For example, 
+[FILTER_ADD_TIME] does all the tracking.  Takes the total_duration of the recently completed print job and adds it to the value stored for the hourcounter variable.  Note that print jobs that are cancelled or fail and do not produce print_stats values for total_duration are not tracked.  Call this in your [PRINT_END] macro.  Calls FILTER_ALERT_CHECK to check if hour counter exceeds the max and alerts if it is.  If you use delayed gcode to turn off your filter fans, send the duration value (which is in seconds) when calling this macro in the DELAY parameter.  For example, 
 
 ```
 # Calls macro with the delayed_gcode duration value of 1800 seconds (i.e., 30 minutes)
