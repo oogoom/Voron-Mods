@@ -8,7 +8,7 @@ Thanks to PF for the notifier idea!
 
 ### REQUIRED:
 
-[save_variables] config section must be added to your printer.cfg.  Your path must be defined.  Use whatever path it is to your klipper config.  The example below is shown with the default path for Klipper since last year.  Older versions of Klipper will have a different path.  This config section will enable saving variables to a file (e.g., variables.cfg) that will allow variables and their values to be saved across restarts.  The filename can be changed to whatever you choose.
+[save_variables] config section must be added to your printer.cfg.  Your path must be defined.  Use whatever path it is to your klipper config.  The example below is shown with the default path for Klipper since last year.  Older versions of Klipper will have a different path.  This config section will enable saving variables to a file (e.g., variables.cfg) that will allow variables and their values to be saved across restarts.  The filename can be changed to whatever you choose.  The file will be created by Klipper automatically, so creating one is not necessary.
 
 ```
 #######################################
