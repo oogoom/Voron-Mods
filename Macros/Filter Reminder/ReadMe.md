@@ -20,9 +20,9 @@ filename: ~/printer_data/config/variables.cfg
 
 Once [save_variables] has been added to your printer.cfg, you can add these macros as well.  
 
-[FILTER_ALERT_CHECK] does error checking and alerting.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called. Also, includes support for moonraker notifier.  Alerts are displayed in M117 status as well as the console.  Hopefully, you see one of them but feel free to comment out whichever you don't want.
+[FILTER_ALERT_CHECK] does error checking and alerting.  This is to deal with a quirk where the variable value doesn't seem to update immediately for use until another macro is called. Alerts are displayed in M117 status as well as the console.  Hopefully, you see one of them but feel free to comment out whichever you don't want.  Also, includes support for moonraker notifier.
 
-[FILTER_RESET] resets the hour counter and is where you can define your desired maximum hours.  It is a float value to reflect print jobs less than 1 hour.  Change the maxhours value to whatever you wish.  This macro should be run every time you change your filter media.  It will call FILTER_ALERT_CHECK to display an M117 status message once complete or an error if something went wrong.
+[FILTER_RESET] resets the hour counter and is where you can define your desired maximum hours.  It is a float value to reflect print jobs less than 1 hour.  Change the maxhours value to whatever you wish.  This macro should be run every time you change your filter media.  It will call FILTER_ALERT_CHECK to display an M117 status message and console message once complete or an error if something went wrong.
 
 [FILTER_TIME] simply displays the currently tracked hour counter value.  Quick way to see how close you are to reaching your max.
 
