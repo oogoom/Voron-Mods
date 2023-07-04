@@ -11,8 +11,8 @@ Just need to print 4 of the cover insert.  Should be a tight tolerance fit!
 Pick whichever you want and mirror in your slicer as needed!  
 
 USB:
-![USB belt cover](https://github.com/oogoom/Voron-Mods/tree/main/Z%20Belt%20Covers/images/DSC_0094.jpg)
+![USB belt cover](https://github.com/oogoom/Voron-Mods/blob/main/Z%20Belt%20Covers/images/DSC_0094.jpg)
 
 FFC:
-![FFC belt cover](https://github.com/oogoom/Voron-Mods/tree/main/Z%20Belt%20Covers/images/DSC_0095.jpg)
+![FFC belt cover](https://github.com/oogoom/Voron-Mods/blob/main/Z%20Belt%20Covers/images/DSC_0095.jpg)
 
