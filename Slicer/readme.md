@@ -1,7 +1,7 @@
 Files to make your slicer have a tabbed bed and west3d black PEI images for prusaslicer/superslicer and similar variants.
 
 ## IMPORTANT: 
-The auto arrange algorithm in prusaslicer/superslicer is unable to handle custom shapes.  Devs seem to be aware of this issue but since late 2019, there hasn't been a fixed it seems.  If you only ever manually arrange parts and want a clean tabbed plate look, choose method 1.  If you like using auto arrange, choose method 2.
+The auto arrange algorithm in prusaslicer/superslicer is unable to handle custom shapes.  Devs seem to be aware of this issue since late 2019, but there hasn't been a fix it seems.  If you only ever manually arrange parts and want a clean tabbed plate look, choose method 1.  If you like using auto arrange, choose method 2.
 
 ## METHOD 1
 ### Installation:
